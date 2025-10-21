@@ -28,5 +28,8 @@ export NANOCHAT_BASE_DIR=${HOME}/.cache/nanochat
 train:
 	CUDA_VISIBLE_DEVICES=${dev} torchrun --standalone --nproc_per_node=${GPU_NUM} -m scripts.base_train -- --depth=20 --run=dummy
 
+tok:
+	python -m scripts.tok_train --max_chars=2000000000
+	
 deps:
 	pydeps . --max-bacon=2 --show-deps --noshow
